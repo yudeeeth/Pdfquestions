@@ -65,3 +65,61 @@ int main(){
     sort(v2.begin(),v2.end());
     cout<<count(v1,v2)<<endl;
 }
+
+//solution from gfg which didnt work yet
+// class Solution{
+//     public:
+//     //Function to return the count of number of elements in union of two arrays.
+//     int doUnion(int a[], int n, int b[], int m)  {
+//         //code here
+//     sort(a,a+n);
+//     sort(b,b+m);
+//     int i,j;
+//     int counter=0;
+//     i=0;
+//     j=0;
+//     while(i<n && j<m){
+//         if(a[i]==b[j]){
+//             do{
+//             j++;}while(j<m&&j>0 && b[j]==b[j-1]);
+//             do{
+//             i++;}while(i<n&&i>0 && a[i]==a[i-1]);
+//             counter++;
+//         }
+//         else if(a[i]>b[j]){
+//             counter++;
+//             do{
+//             j++;}while(j<m&&j>0 && b[j]==b[j-1]);
+//         }
+//         else{
+//             counter++;
+//             do{
+//             i++;}while(i<n&&i>0 && a[i]==a[i-1]);
+//         }
+//     }
+//     if(i==n && j==m)
+//         return counter;
+//     if(i==n)
+//         {
+//             int k = j;
+//             while(k<m){
+//                 counter++;
+//                 while(k<m-1 && b[k]==b[k+1]){
+//                     k++;
+//                 }
+//                 k++;
+//             }
+//             return counter;
+//         }
+//     int k = i;
+//             while(k<n){
+//                 counter++;
+//                 while(k<m-1 && a[k]==a[k+1]){
+//                     k++;
+//                 }
+//                 k++;
+//             }
+//     return counter;
+//     }
+    
+// };

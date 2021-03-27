@@ -14,3 +14,16 @@ int main(){
     cout<<k;
 
 }
+
+//solution function from gfg woked
+// class Solution{   
+// public:
+//     int getOddOccurrence(int arr[], int n) {
+//         // code here
+//         int sol=0;
+//         for(int i=0;i<n;i++){
+//             sol = sol^ arr[i];
+//         }
+//         return sol;
+//     }
+// };
