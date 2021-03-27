@@ -1,7 +1,8 @@
+#include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
 //solution function from gfg which worked
-//naive map solution O(n) time and O(n) space
+//naive set solution O(n) time and O(n) space
 // pair<int,int> twoRepeated (int arr[], int N)
 //     {
 //         unordered_set<int> m;
@@ -21,10 +22,23 @@ using namespace std;
 //         // Your code here
 //     }
 
-pair<int,int> twoRepeated(int arr[], int N){
-
+//working code from gfg
+pair<int,int> twoRepeated (int arr[], int N)
+{
+    pair<int,int> sol;
+    sol.first = 0;
+    sol.second = 0;
+    for(int i=0;i<N+2;i++){
+        if(arr[abs(arr[i])]<0){
+            sol.first = sol.second;
+            sol.second = abs(arr[i]);
+        }
+        else{
+            arr[abs(arr[i])] = -arr[abs(arr[i])];
+        }
+    }
+    return sol;
 }
-
 int main(){
     int k;
     cin>>k;
