@@ -1,0 +1,4 @@
+#!/bin/zsh
+git add week$1/*
+git commit -m "--"
+git push origin master
