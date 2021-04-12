@@ -3,18 +3,21 @@
 
 using namespace std;
 
-void swap(vector<int> &arr, int i,int j){
+void swap(vector<int> &arr,vector<bool> &b, int i,int j){
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
+    b[i]=false;
+    b[j] = false;
 }
 
 void transpose(vector<int> &arr, int n, int m){
+    vector<bool> b(arr.size(),true);
     int i,j;
-    int toi,toj;
     for(int i=0;i<n;i++){
-        for(int j=i;j<m;j++){
-            swap(arr,i*m+j,j*n+i);
+        for(int j=0;j<m;j++){
+            if()
+            swap(arr,b,i*m+j,j*n+i);
         }
     }
 }
