@@ -19,7 +19,46 @@ void push(Node * &head,int val){
     head = n;
 }
 
-void revaltnodes(Node * head){
+
+void print(Node *head){
+    while(head!=NULL){
+        cout<<head->val<<" ";
+        head = head->next;
+    }
+    cout<<endl;
+}
+
+Node* sortedMerge(Node* head1, Node* head2)  
+{  
+    Node* head = new Node(0);
+    Node * temp = head;
+    bool b = true;
+    while(head1 && head2){
+        if(b){
+            temp->next = head1;
+            head1 = head1->next;
+            temp = temp->next;
+            temp->next = NULL;
+        }
+        else{
+            temp->next = head2;
+            head2 = head2->next;
+            temp= temp->next;
+            temp->next = NULL;
+        }
+        b = !b;
+    }
+    if(head1==NULL){
+        temp->next = head2;
+    }
+    else{
+        temp->next = head1;
+    }
+    return head->next;
+    // code here
+}  
+
+Node* revaltnodes(Node * head){
     Node * second,*buff;
     Node * s,*f;
     second = NULL;buff = NULL;
@@ -31,25 +70,21 @@ void revaltnodes(Node * head){
         s->next = f;
         s = f;
     }
-    second = head;
-    while(second!=NULL){
-        if(buff){
-        Node * temp = buff->next;
-        buff->next = second->next;
-        second->next = buff;
-        buff = temp;
-        }
-        second = second->next;
-    }
+    // print(head);
+    // print(buff);
+    return sortedMerge(head,buff);
+    // second = head;
+    // while(second!=NULL){
+    //     if(buff){
+    //     Node * temp = buff->next;
+    //     buff->next = second->next;
+    //     second->next = buff;
+    //     buff = temp;
+    //     }
+    //     second = second->next;
+    // }
 }
 
-void print(Node *head){
-    while(head!=NULL){
-        cout<<head->val<<" ";
-        head = head->next;
-    }
-    cout<<endl;
-}
 
 int main() {
     int n;
@@ -65,6 +100,5 @@ int main() {
             head = temp;
         }
     }
-    revaltnodes(head);
-    print(head);
+    print(revaltnodes(head));
 }
