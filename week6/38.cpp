@@ -1,0 +1,3 @@
+void checksum(Node * root){
+    
+}
